@@ -1,0 +1,16 @@
+{
+  "name": "hugeapp-venus",
+  "version": "1.0.0",
+  "description": "cors webserver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MichaelHu",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-better-body": "^3.0.2",
+    "koa-better-router": "^2.1.1"
+  }
+}
