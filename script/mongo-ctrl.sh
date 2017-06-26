@@ -1,5 +1,7 @@
 #!/bin/bash
 
+option=$1
+
 MONGODIR=/Users/hudamin/tmp/mongodb-3.4.5/mongodb-osx-x86_64-3.4.5
 MONGOD=$MONGODIR/bin/mongod
 DBDATA=$MONGODIR/data
@@ -33,17 +35,16 @@ function stop_server {
 }
 
 chk_version
-exit 0
 case "$option" in
     "stop" )
         stop_server
         ;;
 
     * )
-    stop_server
-    echo "starting ..."
-    sleep 3
-    start_server
-    ;;
+        stop_server
+        echo "starting ..."
+        sleep 3
+        start_server
+        ;;
 esac
 exit 0

@@ -52,10 +52,10 @@ case "$option" in
         ;;
 
     * )
-    stop_server
-    echo "starting ..."
-    sleep 3
-    start_server
-    ;;
+        stop_server
+        echo "starting ..."
+        sleep 3
+        start_server
+        ;;
 esac
 exit 0
