@@ -12,6 +12,7 @@ router.post( '/error-log', body(), function * ( next ) {
 
     try {
         info = JSON.parse( this.request.body );
+        info.ts = Date.now();
     }
     catch ( e ) {
         console.log( 'JSON.parse error ...' );
