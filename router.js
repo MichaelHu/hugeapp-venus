@@ -3,7 +3,15 @@ var body = require( 'koa-better-body' );
 var router = require( 'koa-better-router' )().loadMethods();
 
 router.get( '/list', function * ( next ) {
-    this.body = 'list';
+    const now = Date.now();
+    const ms_1_day = 1000 * 60 * 60 * 24;
+    const list = yield this.mongo.db( 'sophon-error' )
+        .collection( 'error-log' )
+        .find( { ts: { $gt: now - ms_1_day } }, { _id: 0 } )
+        .sort( { ts: 1 } )
+        .toArray()
+        ; 
+    this.body = JSON.stringify( list, null, 4 );
     yield next;
 } );
 
